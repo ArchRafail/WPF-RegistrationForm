@@ -1,0 +1,94 @@
+﻿<Window x:Class="WPF_RegistrationForm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_RegistrationForm"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="640" Width="450" ResizeMode="NoResize">
+
+    <StackPanel>
+        <Label Content="User's Registration Form" HorizontalContentAlignment="Center" Margin="0,5" FontWeight="Bold" FontSize="20"/>
+        <Border Height="524" Margin="40, 5, 40, 40" BorderThickness="2" BorderBrush="Black">
+            <Grid Margin="5">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Your name:*" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="Name" Grid.Column="1" Height="25" Background="LightGray"/>
+
+                <Label Grid.Row="1" Content="Password:*" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="Password" Grid.Column="1" Grid.Row="1" Height="25" Background="LightGray"/>
+
+                <Label Grid.Row="2" Content="Age:*" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="Age"  Grid.Column="1" Grid.Row="2" Height="25" Background="LightGray"/>
+
+                <Label Grid.Row="3" Content="Sex:" VerticalContentAlignment="Center"/>
+                <DockPanel Grid.Column="1" Grid.Row="3">
+                    <RadioButton x:Name="Male" DockPanel.Dock="Left" Content="Male" FlowDirection="RightToLeft" IsChecked="True" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                    <RadioButton x:Name="Female" DockPanel.Dock="Right" Content="Female" FlowDirection="RightToLeft" IsChecked="False" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+                </DockPanel>
+
+                <Label Grid.Row="4" Content="Your interests:" VerticalContentAlignment="Center"/>
+                <DockPanel Grid.Column="1" Grid.Row="4">
+                    <CheckBox x:Name="Interests1" DockPanel.Dock="Left" Content="Music" FlowDirection="RightToLeft" IsChecked="False" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <CheckBox x:Name="Interests2" DockPanel.Dock="Left" Content="Video" FlowDirection="RightToLeft" IsChecked="False" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <CheckBox x:Name="Interests3" DockPanel.Dock="Right" Content="Drawing" FlowDirection="RightToLeft" IsChecked="False" VerticalAlignment="Center" Margin="0,0,15,0"/>
+                </DockPanel>
+
+                <Label Grid.Row="5" Content="Your country:*" VerticalContentAlignment="Center"/>
+                <ComboBox x:Name="CountryBox" Grid.Column="1" Grid.Row="5" Height="25" IsReadOnly="True" SelectionChanged="CountryBox_SelectionChanged">
+                    <ComboBoxItem Content="Australia"/>
+                    <ComboBoxItem Content="Austria"/>
+                    <ComboBoxItem Content="Germany"/>
+                    <ComboBoxItem Content="Great Britain"/>
+                    <ComboBoxItem Content="France"/>
+                    <ComboBoxItem Content="Ukraine"/>
+                    <ComboBoxItem Content="USA"/>
+                </ComboBox>
+
+                <Label Grid.Row="6" Content="Your city:*" VerticalContentAlignment="Center"/>
+                <ComboBox x:Name="CityBox" Grid.Column="1" Grid.Row="6" Height="25" SelectionChanged="CityBox_SelectionChanged"/>
+
+                <TextBlock Grid.Row="7" Text="Short information about yourself:" VerticalAlignment="Center" TextWrapping="Wrap" Margin="7">
+                </TextBlock>
+                <TextBox x:Name="Information" Grid.Column="1" Grid.Row="7" AcceptsReturn="True" Height="50" Background="LightGray"/>
+
+                <Label Grid.Row="8" Grid.ColumnSpan="2" Content="Solve the task and write down the result below:*" VerticalContentAlignment="Center"/>
+
+                <StackPanel Grid.Row="9" Orientation="Vertical" VerticalAlignment="Center">
+                    <Label Content="Captcha:"/>
+                    <Border Margin="5,0,50,0" BorderThickness="1" BorderBrush="Black">
+                        <Label x:Name="Task" Height="25" HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+                <TextBox x:Name="Answer" Grid.Column="1" Grid.Row="9" Height="25" Background="LightGray"/>
+
+                <TextBlock Grid.Row="10" Text="* Input required" TextWrapping="Wrap" Margin="5,5,70,5" FontSize="9" VerticalAlignment="Bottom"/>
+
+                <DockPanel Grid.Column="1" Grid.Row="10">
+                    <Button x:Name="Decline" DockPanel.Dock="Left" Content="Decline" Height="25" Width="80" Margin="20,0,0,0" Click="Decline_Click"/>
+                    <Button x:Name="Confirm" DockPanel.Dock="Right" Content="Confirm" Height="25" Width="80" HorizontalAlignment="Right" Margin="0,0,20,0" Click="Confirm_Click"/>
+                </DockPanel>
+
+            </Grid>
+        </Border>
+    </StackPanel>
+</Window>
